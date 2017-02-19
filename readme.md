@@ -14,7 +14,7 @@ You may need to change file paths as necessary as each platform (windows, mac, l
 
 ## Install Files
 
-1. Copy plugin files to `$HOME/.attract/plugins/Debug/`
+1. Copy plugin files to `$HOME/.attract/plugins/Debug/`.
 
 ## Usage
 
