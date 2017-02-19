@@ -10,8 +10,8 @@ class UserConfig </ help="A plugin that helps to debug layouts." /> {
 // Debug
 class Debug {
 	config = null;
-	reloadKey = ""
-	;
+	reloadKey = "";
+	
 	constructor() {
 		config = fe.get_config();
 		reloadKey = config["reloadKey"].tolower();
