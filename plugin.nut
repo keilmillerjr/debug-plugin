@@ -10,6 +10,16 @@ class UserConfig </ help="A plugin that helps to debug layouts." /> {
 		options="Custom1, Custom2, Custom3, Custom4, Custom5, Custom6",
 		order=2 />
 	fpsKey="Custom2";
+	</ label="Frame Rate Counter Color",
+		help="The color of the layout frame rate counter.",
+		options="Black, White",
+		order=3 />
+	fpsCounterColor="White";
+	</ label="Frame Rate Counter Position",
+		help="The position of the layout frame rate counter.",
+		options="TL, TR, BL, BR",
+		order=4 />
+	fpsCounterPosition="BR";
 }
 
 // Debug
@@ -30,9 +40,33 @@ class Debug {
 		reloadKey = config["reloadKey"].tolower();
 		fe.add_signal_handler(this, "reload");
 
-		fpsCounter = fe.add_text("", 0, fe.layout.height-(fe.layout.height/20), fe.layout.width, fe.layout.height/20);
-			fpsCounter.align = Align.MiddleRight;
-			fpsCounter.set_rgb(255, 255, 255);
+		fpsCounter = fe.add_text("", 0, 0, fe.layout.width, fe.layout.height/20);
+			switch (config["fpsCounterPosition"].tolower()) {
+				case "tl":
+					fpsCounter.set_pos(0, 0);
+					fpsCounter.align = Align.MiddleLeft
+					break;
+				case "tr":
+					fpsCounter.set_pos(0, 0);
+					fpsCounter.align = Align.MiddleRight;
+					break;
+				case "bl":
+					fpsCounter.set_pos(0, fe.layout.height-(fe.layout.height/20));
+					fpsCounter.align = Align.MiddleLeft;
+					break;
+				default:
+					fpsCounter.set_pos(0, fe.layout.height-(fe.layout.height/20));
+					fpsCounter.align = Align.MiddleRight;
+					break;
+			}
+			switch (config["fpsCounterColor"].tolower()) {
+				case "black":
+					fpsCounter.set_rgb(0, 0, 0);
+					break;
+				default:
+					fpsCounter.set_rgb(255, 255, 255);
+					break;
+			}
 		fpsDraw = fe.add_text("", 0, 0, 1, 1);
 		fpsKey = config["fpsKey"].tolower();
 		fpsStartTime = 0;
