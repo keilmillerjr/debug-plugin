@@ -15,11 +15,20 @@ class UserConfig </ help="A plugin that helps to debug layouts." /> {
 		options="Black, White",
 		order=3 />
 	fpsCounterColor="White";
+	</ label="Frame Rate Counter Height",
+		help="The height (percent) of the layout frame rate counter.",
+		order=4 />
+	fpsCounterHeight="20";
 	</ label="Frame Rate Counter Position",
 		help="The position of the layout frame rate counter.",
 		options="TL, TR, BL, BR",
 		order=4 />
 	fpsCounterPosition="BR";
+}
+
+function inRange(val, low, high) {
+	if (val >=low && val <= high) return true;
+	else return false;
 }
 
 // Debug
@@ -36,11 +45,20 @@ class Debug {
 
 	constructor() {
 		config = fe.get_config();
+			try {
+				config["fpsCounterHeight"] = config["fpsCounterHeight"].tointeger();
+				assert(inRange(config["fpsCounterHeight"], 1, 100));
+			}
+			catch (e) {
+				print("ERROR in Debug Plugin: frame rate counter height\n");
+				config["fpsCounterHeight"] = 20;
+			}
 
 		reloadKey = config["reloadKey"].tolower();
 		fe.add_signal_handler(this, "reload");
 
-		fpsCounter = fe.add_text("", 0, 0, fe.layout.width, fe.layout.height/20);
+		fpsCounter = fe.add_text("", 0, 0, fe.layout.width, 0);
+			fpsCounter.height = fe.layout.height/config["fpsCounterHeight"];
 			switch (config["fpsCounterPosition"].tolower()) {
 				case "tl":
 					fpsCounter.set_pos(0, 0);
