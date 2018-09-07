@@ -1,4 +1,11 @@
+// --------------------
+// Load Modules
+// --------------------
+fe.load_module("helpers");
+
+// --------------------
 // Plugin User Options
+// --------------------
 class UserConfig </ help="A plugin that helps to debug layouts." /> {
 	</ label="Reload Layout Key",
 		help="The key that triggers the layout to reload.",
@@ -26,12 +33,9 @@ class UserConfig </ help="A plugin that helps to debug layouts." /> {
 	fpsCounterPosition="BR";
 }
 
-function inRange(val, low, high) {
-	if (val >=low && val <= high) return true;
-	return false;
-}
-
-// Debug
+// --------------------
+// Debug Class
+// --------------------
 class Debug {
 	config = null;
 
@@ -44,6 +48,7 @@ class Debug {
 	fpsStartTime = null;
 
 	constructor() {
+		// Config
 		config = fe.get_config();
 			try {
 				config["fpsCounterHeight"] = config["fpsCounterHeight"].tointeger();
@@ -54,9 +59,11 @@ class Debug {
 				config["fpsCounterHeight"] = 20;
 			}
 
+		// Reload Layout
 		reloadKey = config["reloadKey"].tolower();
 		fe.add_signal_handler(this, "reload");
 
+		// Frame Rate Counter
 		fpsCounter = fe.add_text("", 0, 0, fe.layout.width, 0);
 			fpsCounter.height = fe.layout.height/config["fpsCounterHeight"];
 			switch (config["fpsCounterPosition"].tolower()) {
@@ -98,6 +105,7 @@ class Debug {
 		return false;
 	}
 
+	// Toggle Frame Rate Counter
 	function fpsToggle(str) {
 		if (str == fpsKey) {
 			fpsCounter.visible ? fpsCounter.visible = false : fpsCounter.visible = true;
