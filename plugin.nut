@@ -50,7 +50,7 @@ class Debug {
 				assert(inRange(config["fpsCounterHeight"], 1, 100));
 			}
 			catch (e) {
-				print("ERROR in Debug Plugin: frame rate counter height\n");
+				print("ERROR in Debug Plugin: user options - improper frame rate counter height\n");
 				config["fpsCounterHeight"] = 20;
 			}
 
