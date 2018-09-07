@@ -1,4 +1,4 @@
-// Layout User Options
+// Plugin User Options
 class UserConfig </ help="A plugin that helps to debug layouts." /> {
 	</ label="Reload Layout Key",
 		help="The key that triggers the layout to reload.",
