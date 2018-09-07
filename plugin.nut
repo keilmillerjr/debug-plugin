@@ -28,7 +28,7 @@ class UserConfig </ help="A plugin that helps to debug layouts." /> {
 
 function inRange(val, low, high) {
 	if (val >=low && val <= high) return true;
-	else return false;
+	return false;
 }
 
 // Debug
