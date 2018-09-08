@@ -9,7 +9,6 @@ Debug plugin is for the [AttractMode](http://attractmode.org) front end. It curr
 * Reload the layout with a user definable key press
 * Display the frame rate
 
-
 You may also want to check out the [Debug module](https://github.com/keilmillerjr/debug-module).
 
 ## Paths
