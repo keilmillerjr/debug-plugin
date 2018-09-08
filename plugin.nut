@@ -34,7 +34,7 @@ class UserConfig </ help="A plugin that helps to debug layouts." /> {
 }
 
 // --------------------
-// Debug Class
+// Debug
 // --------------------
 class Debug {
 	config = null;
