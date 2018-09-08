@@ -28,10 +28,8 @@ Set the **Reload Layout Key** to a custom key. Pressing this custom key you set 
 
 Set the **Toggle Frame Rate Key** to a custom key, if you wish to toggle the frame rate on and off. Frame rate is shown by default. A suggestion is to use the letter "F".
 
-## Credits
+## Notes
 
 The frame rate feature was an idea borrowed with permission and thanks from zpaolo11x on the [AttractMode forum](http://forum.attractmode.org/index.php?topic=2402.0).
-
-## Notes
 
 More functionality is expected as it meets my needs. If you have an idea of something to add that might benefit a wide range of layout developers, please join the [AttractMode forum](http://forum.attractmode.org/) and send [me](http://forum.attractmode.org/index.php?action=profile;u=32) a message.
