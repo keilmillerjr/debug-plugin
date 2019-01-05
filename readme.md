@@ -26,7 +26,7 @@ You can enable the Debug plugin by running Attract Mode and pressing the tab key
 
 Set the **Reload Layout Key** to a custom key. Pressing this custom key you set up will reload the layout. A suggestion is to use the letter "R". This aids in the design process because you no longer have to kill and restart the attract app.
 
-Set the **Toggle Frame Rate Key** to a custom key, if you wish to toggle the frame rate on and off. Frame rate is shown by default. A suggestion is to use the letter "F".
+Set the **Toggle Frame Rate Key** to a custom key, if you wish to toggle the frame rate on and off. Frame rate is not visible by default. A suggestion is to use the letter "F".
 
 ## Notes
 

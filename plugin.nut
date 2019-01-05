@@ -65,6 +65,7 @@ class Debug {
 
 		// Frame Rate Counter
 		fpsCounter = fe.add_text("", 0, 0, fe.layout.width, 0);
+			fpsCounter.visible = false;
 			fpsCounter.height = fe.layout.height/config["fpsCounterHeight"];
 			switch (config["fpsCounterPosition"].tolower()) {
 				case "tl":
